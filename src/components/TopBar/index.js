@@ -8,10 +8,10 @@ class TopBar extends Component{
 		return (
 			<header className='header'>
 			<NavLink to='/category'  className='left' replace>分类</NavLink>
-				<div className='logo'><img src={logo}/></div>
+				<div className='logo'><img src={logo} alt='' /></div>
 				<div className='right'>
-					<span class="iconfont">&#xe601;</span>
-					<span class="iconfont">&#xe617;</span>
+					<span className="iconfont">&#xe601;</span>
+					<span className="iconfont">&#xe617;</span>
 				</div>
 			</header>
 		)
