@@ -12,6 +12,11 @@ module.exports = function(app) {
 		changeOrigin: true
 	}));
 
+	app.use(proxy('/4', {
+		target: 'https://api.ricebook.com',
+		changeOrigin: true
+	}));
+
 
 
 };
