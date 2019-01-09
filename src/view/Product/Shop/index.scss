@@ -1,0 +1,41 @@
+#shop {
+	margin-top: 20px;
+	background: #fff;
+	padding: 24px 24px 20px;
+	.card-title {
+		text-align: center;
+		font-size: 20px;
+		color: #2c3038;
+		margin-bottom: 18px;
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -16px;
+			left: 50%;
+			margin-left: -26px;
+			width: 50px;
+			border-top: 4px solid #e0e0e0;
+			display: block;
+		}
+	}
+	.title {
+		padding: 20px 0 20px;
+		font-size: 24px;
+		color: #2c3038;
+		border-bottom: 1px solid #ccc;
+	}
+	.address, .tel {
+		display: block;
+		padding: 21px 0 21px;
+		color: #63666b;
+		border-bottom: 1px solid #cecece;
+		.content {
+			font-size: 16px;
+			width: 300px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}
