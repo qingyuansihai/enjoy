@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './index.scss'
 import {getProductDetailInfo} from '../model'
 
-class Swipe extends Component {
+class Shop extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -50,4 +50,4 @@ class Swipe extends Component {
 }
 
 
-export default Swipe
+export default Shop

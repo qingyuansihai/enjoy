@@ -26,7 +26,7 @@ class Info extends Component {
 								</h3>
 								<p className="desc">{this.state.productInfo.description}</p>
 								<p className="price">
-									{this.state.productInfo.price}/{this.state.productInfo.show_entity_name}
+									{this.state.productInfo.price}元/{this.state.productInfo.show_entity_name}
 									<span><del>￥{this.state.productInfo.origin_price}</del> 丨 随时退</span>
 								</p>
 							</div>

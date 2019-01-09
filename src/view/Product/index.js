@@ -3,6 +3,9 @@ import './index.scss'
 import Swipe from './Swipe'
 import Info from './Info'
 import Shop from './Shop'
+import Feedback from './Feedback'
+import Menu from './Menu'
+import Light from './Light'
 
 class Product extends Component{
 	render() {
@@ -11,6 +14,9 @@ class Product extends Component{
 				<Swipe {...this.props}/>
 				<Info {...this.props}/>
 				<Shop {...this.props}/>
+				<Feedback {...this.props}/>
+				<Menu {...this.props}/>
+				<Light {...this.props}/>
 			</div>
 		);
 	}
