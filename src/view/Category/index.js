@@ -3,16 +3,9 @@ import React,{Component} from 'react'
 class Category extends Component{
 	render(){
 		return <div>
-			
-
-			fff
-
-
-
+			{this.props.children}
 		</div>
 	}
 }
 
-export default Category
-
-
+export default Category;
