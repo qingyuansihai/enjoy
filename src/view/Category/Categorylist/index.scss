@@ -1,0 +1,31 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#cate-list {
+	.listtitle {
+		padding: 10px 30px;
+		color: #1b1b20;
+		background: #f6f6f6;
+		text-align: left;
+		font-size: 15px;
+	}
+
+	.listcon {
+		display: flex;
+		list-style: none;
+		flex-wrap: wrap;
+
+		.listitem {
+			box-sizing: border-box;
+			border-right: 1px solid #eee;
+			border-bottom: 1px solid #eee;
+			height: 50px;
+			line-height: 50px;
+			width: 33.33%;
+			text-align: center;
+			font-size: 14px;
+		}
+	}
+}
