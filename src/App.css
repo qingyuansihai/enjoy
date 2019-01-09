@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+body,h1,h2,h3,h4,h5,h5,a,img,p,input,ul,li,ol,dl,dt,dd,figure,figcaption{padding:0;margin:0;}
+img{display:block;border:0;}
+input{outline:none}
+ul,ol{list-style:none}
+a{text-decoration:none;color:#333;}
+a:hover{color:#999;}
+
+header,nav,footer,section,aside,figure,figcation,main{display:block}
