@@ -6,9 +6,6 @@ class Product extends Component{
 			
 
 
-
-
-
 		</div>
 	}
 }
