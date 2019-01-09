@@ -30,9 +30,14 @@
 		padding: 21px 0 21px;
 		color: #63666b;
 		border-bottom: 1px solid #cecece;
-		.content {
+		i {
+			font-size: 24px;
+			margin-right: 12px;
+		}
+		span {
+			display: inline-block;
 			font-size: 16px;
-			width: 300px;
+			width: 80%;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;

@@ -21,12 +21,14 @@ class Swipe extends Component {
 						<div className="title">{this.state.shopInfo.restaurant_name}</div>
 						<a className="address"
 						   href={`https://topic.ricebook.com/topicpage/map.html?p=121.46739196777344,31.215110778808594&t=${this.state.shopInfo.restaurant_address}`}>
-							<span className="iconfont"></span>
+							<i className="iconfont icon-weizhi"/>
 							<span className="content">{this.state.shopInfo.restaurant_address}</span>
+							<i className="iconfont icon-left-2"/>
 						</a>
 						<a className="tel" href={`tel:${this.state.shopInfo.restaurant_phone_numbers[0]}`}>
-							<span className="iconfont"></span>
+							<i className="iconfont icon-dianhua"/>
 							<span className="content">{this.state.shopInfo.restaurant_phone_numbers[0]}</span>
+							<i className="iconfont icon-left-2"/>
 						</a>
 					</div>
 					: null
