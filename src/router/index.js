@@ -15,13 +15,13 @@ const router = (
 				<Route path='/home' component={Home}/>
 				<Route path='/category' component={Category}/>
 				<Route path='/discovery' component={Discovery}/>
-				<Route path='/product' component={Product}/>
+				<Route path='/product/:id' component={Product} exact/>
 				<Route path='/feedback/:id' component={Feedback} exact/>
 				<Redirect  from='*' to='/home'/>
 			</Switch>
 		</App>
 	</Router>
-)
+);
 
 export default router
 
