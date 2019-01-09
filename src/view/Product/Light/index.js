@@ -19,6 +19,8 @@ class Light extends Component {
 					this.state.lights.map((item,index) =>
 						<div className="lights-item" key={index}>
 							<img src={item.img_url} alt=""/>
+							<h4 className="light-item">{item.title}</h4>
+							<p className="light-content">{item.content}</p>
 						</div>
 					)
 				}

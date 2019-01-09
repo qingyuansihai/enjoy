@@ -6,6 +6,8 @@ import Shop from './Shop'
 import Feedback from './Feedback'
 import Menu from './Menu'
 import Light from './Light'
+import Tips from './Tips'
+import Like from './Like'
 
 class Product extends Component{
 	render() {
@@ -17,6 +19,8 @@ class Product extends Component{
 				<Feedback {...this.props}/>
 				<Menu {...this.props}/>
 				<Light {...this.props}/>
+				<Tips {...this.props}/>
+				<Like {...this.props}/>
 			</div>
 		);
 	}
