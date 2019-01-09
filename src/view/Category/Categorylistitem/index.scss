@@ -1,0 +1,68 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.navlist {
+	display: flex;
+
+	li {
+		height: 40px;
+		line-height: 40px;
+		flex: 1;
+		text-align: center;
+		font-size: 13px;
+
+		&.navleft {
+			border-right: 1px solid #ccc;
+		}
+
+		&.navright {
+			position: relative;
+			
+			.tridown {
+				border: 5px solid #fff;
+				border-top: 5px solid #000;
+				position: absolute;
+				top: 18px;
+				left: 125px;
+			}
+		}
+	}
+}
+
+.downlist {
+
+	.downdata {
+		display: flex;
+		padding: 15px;
+		border-bottom: 1px solid #ccc;
+		overflow: hidden;
+
+		img {
+			display: inline-block;
+			height: 110px;
+			float: left;
+			margin-right: 10px;
+		}
+
+		.itemdown {
+			flex: 1;
+			float: left;
+
+			.listdown {
+				margin-top: 40px;
+
+				.priceleft {
+					color: red;
+					margin-right: 10px;
+				}
+
+				.priceright {
+					color: #ccc;
+					text-decoration: line-through;
+				}
+			}
+		}
+	}
+}
