@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import {NavLink} from "react-router-dom";
 import './index.scss';
 import {connect} from "react-redux";
-import store from "../../store";
+import {withRouter} from "react-router-dom";
 
 class NavBar extends Component{
 
@@ -42,10 +42,10 @@ class NavBar extends Component{
 	}
 }
 
-export default connect(
+export default withRouter(connect(
 	(state) => {
 		return {
 			NavisShow: state.navBarReducer
 		}
 	}
-)(NavBar)
+)(NavBar))

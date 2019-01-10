@@ -37,6 +37,10 @@ class Like extends Component {
 		this.props.history.push(`/product/${id}`)
 	}
 
+	componentWillReceiveProps(nextProps, nextContext) {
+
+	}
+
 
 }
 

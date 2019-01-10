@@ -10,6 +10,9 @@ import Menu from './Menu'
 import Light from './Light'
 import Tips from './Tips'
 import Like from './Like'
+import CartBar from './CartBar'
+
+import {connect} from 'react-redux'
 
 class Product extends Component {
 
@@ -29,7 +32,7 @@ class Product extends Component {
 						<div className="container">
 							{
 								this.state.basicInfo.product_type === 0 ?
-									<div className="product_type1">
+									<div className="product_type0">
 										<Swipe {...this.props} data={this.state.basicInfo.product_images}/>
 										<Info {...this.props} data={this.state.basicInfo}/>
 										<Shop {...this.props} data={this.state.detailInfo[0]}/>
@@ -40,24 +43,36 @@ class Product extends Component {
 										<Like {...this.props} data={this.state.detailInfo[5]}/>
 									</div>
 									:
-									<div className="product_type2">
+									<div className="product_type1">
 										<Swipe {...this.props} data={this.state.basicInfo.product_images}/>
 										<Info {...this.props} data={this.state.basicInfo}/>
 										<Feedback {...this.props} data={this.state.detailInfo[0]}/>
 										{/*商品详情*/}
-
+										{/*<Like {...this.props} data={this.state.detailInfo[5]}/>/*/}
 									</div>
-							}
 
+							}
 						</div>
 						: null
 				}
 
+				<CartBar/>
 			</div>
 		);
 	}
 
+	componentWillMount() {
+		this.props.hideNavBar()
+	}
+
+
+	componentWillUnmount() {
+		this.props.showNavBar()
+	}
+
 	componentDidMount() {
+
+
 		getProductBasicInfo(this.props.match.params.id).then(res => {
 			console.log(res);
 			this.setState({
@@ -65,7 +80,9 @@ class Product extends Component {
 			})
 		});
 		getProductDetailInfo(this.props.match.params.id).then(res => {
-			console.log(res);
+			console.log(res.length);
+
+
 			this.setState({
 				detailInfo: res
 			})
@@ -74,6 +91,23 @@ class Product extends Component {
 
 }
 
-export default Product
+export default connect(
+	null,
+	{
+		showNavBar(){
+			return {
+				type:"ShowNavBar",
+				payload:true  // payload 可以随便起名字
+			}
+		},
+
+		hideNavBar(){
+			return {
+				type:"HideNavBar",
+				payload:false  // payload 可以随便起名字
+			}
+		}
+	}
+)(Product)
 
 
