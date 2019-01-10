@@ -1,14 +1,12 @@
 import React, {Component} from 'react'
-import {getProductBasicInfo} from "../model";
-
 import './index.scss'
 
 class Info extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			productInfo: null,
-			tags: []
+			productInfo: this.props.data,
+			tags: this.props.data.display_property_group
 		}
 	}
 
@@ -32,7 +30,7 @@ class Info extends Component {
 							</div>
 							<div className="tags">
 								{
-									this.state.tags.map((item,index) =>
+									this.state.tags.map((item, index) =>
 										<span key={index} style={{
 											background: item.background_color,
 											color: item.font_color
@@ -42,24 +40,13 @@ class Info extends Component {
 
 							</div>
 						</div>
-					:null
+						: null
 				}
 			</div>
 		);
 	}
 
 
-	componentDidMount() {
-		getProductBasicInfo(this.props.match.params.id).then(res => {
-			console.log(res);
-			this.setState({
-				productInfo: res,
-				tags: res.display_property_group
-			})
-		})
-	}
-
 }
-
 
 export default Info

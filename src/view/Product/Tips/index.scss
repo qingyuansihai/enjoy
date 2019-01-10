@@ -1,7 +1,7 @@
 #tips {
 	margin-top: 16px;
 	background: #fff;
-	padding-top: 24px;
+	padding: 24px 24px;
 	.card-title {
 		text-align: center;
 		font-size: 20px;
@@ -17,6 +17,31 @@
 			width: 50px;
 			border-top: 4px solid #e0e0e0;
 			display: block;
+		}
+	}
+	.tip-list {
+		margin-top: 25px;
+		font-size: 18px;
+		line-height: 35px;
+		color: #63666b;
+		list-style: disc inside none;
+
+		overflow: hidden;
+	}
+	.tips-wrapper {
+		text-align: center;
+		a {
+			margin: 50px 10px 20px;
+			display: inline-block;
+			width: 130px;
+			height: 40px;
+			border: 2px solid #1a1a1a;
+			font-size: 14px;
+			color: #2c3038;
+			span {
+				font-size: 16px;
+				line-height: 40px;
+			}
 		}
 	}
 
