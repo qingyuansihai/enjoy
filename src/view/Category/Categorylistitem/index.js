@@ -3,7 +3,7 @@ import axios from 'axios';
 import './index.scss';
 import {connect} from 'react-redux';
 import store from '../../../store';
-// import getSort from './module'
+import {getSort,getDatalist} from './module'
 
 class Categorylistitem extends Component{
 	constructor(props) {
@@ -26,30 +26,18 @@ class Categorylistitem extends Component{
 	componentDidMount() {
 		this.props.hide()
 
-		axios ({
-			url:`https://api.ricebook.com/4/tab/category_product_list.json?category_id=${this.props.match.params.cateid}&sort=1&from_id=0&city_id=104&page=0`
-		}).then(res=>{
-			console.log(res.data)
+		//获取的是分类页的数据
+		getDatalist(this.props.match.params.cateid).then(res=>{
 			this.setState({
-				datalist: res.data
-			})
-		});
-
-		axios({
-			url:`https://api.ricebook.com/4/tab/sub_category.json?category_id=${this.props.match.params.cateid}&city_id=104&from_id=0`
-		}).then(res=>{
-			console.log(res.data)
-			this.setState({
-				sortdata: res.data.sort
+				datalist: res
 			})
 		})
-
-		// getSort().then(res=>{
-		// 	console.log(res+111111111)
-		// 	this.setState({
-		// 		sortdata: res.sort
-		// 	})
-		// })
+		//获取的是排序的数据
+		getSort(this.props.match.params.cateid).then(res=>{
+			this.setState({
+				sortdata: res
+			})
+		})
 	}
 
 
@@ -74,7 +62,7 @@ class Categorylistitem extends Component{
 			<ul className="downlist">
 				{
 					this.state.datalist.map(item => 
-						<li className="downdata" key={ item.product_id }>
+						<li className="downdata" key={ item.product_id } onClick={ this.handleDatalist.bind(this,item.product_id) }>
 							<img src={item.product_image}/>
 							<div className="itemdown">
 								<p className="listup">{ item.name }</p>
@@ -89,10 +77,6 @@ class Categorylistitem extends Component{
 			</ul>
 		</div>
 	}
-// https:'//api.ricebook.com/4/tab/category_product_list.json?category_id=7&sort=1&from_id=0&city_id=104&page=0
-// https:'//api.ricebook.com/4/tab/category_product_list.json?category_id=7&sort=3&from_id=0&city_id=104&page=0
-// https:'//api.ricebook.com/4/tab/category_product_list.json?category_id=7&sort=2&from_id=0&city_id=104&page=0
-// https:'//api.ricebook.com/4/tab/category_product_list.json?category_id=7&sort=4&from_id=0&city_id=104&page=0
 	
 	handleClickNav() {
 		this.setState({
@@ -102,6 +86,7 @@ class Categorylistitem extends Component{
 	}
 
 	handleSecClick(index,name,id) {
+		//为了代码整洁可以写在module里面
 		axios({
 			url:`https://api.ricebook.com/4/tab/category_product_list.json?category_id=${this.props.match.params.cateid}&sort=${id}&from_id=0&city_id=104&page=0`
 		}).then(res=>{
@@ -112,6 +97,10 @@ class Categorylistitem extends Component{
 			})
 		})
 
+	}
+
+	handleDatalist(id) {
+		this.props.history.push(`/product/${id}`)
 	}
 }
 
