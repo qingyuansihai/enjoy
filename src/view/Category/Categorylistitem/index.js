@@ -52,7 +52,7 @@ class Categorylistitem extends Component{
 						this.state.isShow?
 						<ul className="seclist">
 							{
-								this.state.sortdata.map((item,index) =>
+								this.state.sortdata.map((item,index) => 
 									<li key={ item.sort_id } onClick={ this.handleSecClick.bind(this,index,item.sort_name,item.sort_id) } className={this.state.current===index?'active secitem':'secitem'}>{ item.sort_name }</li>
 								)
 							}
@@ -63,7 +63,7 @@ class Categorylistitem extends Component{
 			</ul>
 			<ul className="downlist">
 				{
-					this.state.datalist.map(item => 
+					this.state.datalist.map(item =>
 						<li className="downdata" key={ item.product_id } onClick={ this.handleDatalist.bind(this,item.product_id) }>
 							<img src={item.product_image}/>
 							<div className="itemdown">
