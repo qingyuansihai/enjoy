@@ -19,14 +19,13 @@ class Categorylistitem extends Component{
 	  };
 	}
 
-	componentWillMount() {
-		this.props.hide()
-	}
 	componentWillUnmount() {
 		this.props.show()
 	}
 
 	componentDidMount() {
+		this.props.hide()
+
 		axios ({
 			url:`https://api.ricebook.com/4/tab/category_product_list.json?category_id=${this.props.match.params.cateid}&sort=1&from_id=0&city_id=104&page=0`
 		}).then(res=>{
