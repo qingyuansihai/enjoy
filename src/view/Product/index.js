@@ -28,7 +28,7 @@ class Product extends Component {
 		return (
 			<div id="product">
 				{
-					this.state.basicInfo && this.state.detailInfo.length !== 0 ?
+					this.state.basicInfo && this.state.detailInfo.length > 4 ?
 						<div className="container">
 							{
 								this.state.basicInfo.product_type === 0 ?
@@ -47,8 +47,8 @@ class Product extends Component {
 										<Swipe {...this.props} data={this.state.basicInfo.product_images}/>
 										<Info {...this.props} data={this.state.basicInfo}/>
 										<Feedback {...this.props} data={this.state.detailInfo[0]}/>
-										{/*商品详情*/}
-										{/*<Like {...this.props} data={this.state.detailInfo[5]}/>/*/}
+										{/*<Detail {...this.props} data={this.state.detailInfo[1]}/>*/}
+										{/*<Light {...this.props} data={this.state.detailInfo[2]}/>*/}
 									</div>
 
 							}
@@ -61,17 +61,13 @@ class Product extends Component {
 		);
 	}
 
-	componentWillMount() {
-		this.props.hideNavBar()
-	}
-
 
 	componentWillUnmount() {
 		this.props.showNavBar()
 	}
 
 	componentDidMount() {
-
+		this.props.hideNavBar();
 
 		getProductBasicInfo(this.props.match.params.id).then(res => {
 			console.log(res);
@@ -80,8 +76,6 @@ class Product extends Component {
 			})
 		});
 		getProductDetailInfo(this.props.match.params.id).then(res => {
-			console.log(res.length);
-
 
 			this.setState({
 				detailInfo: res
