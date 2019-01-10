@@ -1,5 +1,6 @@
 .discovery{
   overflow:hidden;
+  margin-bottom:65px;
   .caption{
     position:relative;
     padding:30px 20px 20px;
@@ -96,12 +97,13 @@
   .omnibus {
     width: 100%;
     height: 100%;
+    margin-top:20px;
+    padding:0 15px;
+    box-sizing: border-box;
     .swiper-slide {
       text-align: center;
       font-size: 18px;
       background: #fff;
-
-      /* Center slide text vertically */
       display: -webkit-box;
       display: -ms-flexbox;
       display: -webkit-flex;
@@ -114,8 +116,110 @@
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
+      color:#fff;
+      &.one{
+        width:48%;
+        background:url('./images/omnibus1.png') no-repeat;
+        background-size:100%;
+        height:91px;
+      }
+      &.two{
+        width:48%;
+        background:url('./images/omnibus2.png') no-repeat;
+        background-size:100%;
+        height:91px;
+      }
+      &.three{
+        width:48%;
+        background:url('./images/omnibus3.png') no-repeat;
+        background-size:100%;
+        height:91px;
+      }
+      div{
+        width:100%;
+        p{
+          display: block;
+
+        }
+        .title{
+          text-align: left;
+          padding-left:15px;
+          font-size:16px;
+        }
+        .tags{
+          font-size:12px;
+          text-align: left;
+          padding-left:15px;
+        }
+      }
+      
     }
   }
+  .hotlist {
+    margin-top:20px;
+    width: 100%;
+    height: 280px;
+    overflow: visible!important;
+    .swiper-wrapper{
+      .swiper-slide{
+        width: 90%;
+        position: relative;
+        &::after{
+          content:'';
+          height:1px;
+          width:100%;
+          background:#e0e0e0;
+          position:absolute;
+          bottom:0;
+        }
+        img{
+          width: 100%;
+          height: 190px;
+          margin-bottom:15px;
+        }
+        .tips{
+          color:#ff3939;
+          font-size:12px;
+          margin-bottom:10px;
+          line-height: 1;
+        }
+        .title{
+          font-size:14px;
+          color:rgba(69,69,69,.99);
+          margin-bottom:8px;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          overflow: hidden;
+          line-height: 1;
+          letter-spacing: 2px;
+        }
+        
+      }
+      .swiper-slide-prev{
+        height: 190px!important;
+        img{
+          height: 190px!important;
+        }
+      }
+      .swiper-slide-next{
+        height: 190px!important;
+        img{
+          height: 190px!important;
+        }
+      }
+      .swiper-slide-active{
+        width: 90%;
+      }
+
+    }
+
+    .swiper-pagination{
+        bottom: -30px!important;
+    }
+    .swiper-pagination .swiper-pagination-bullet{width: 12px; height: 12px; background: #ff1e1e;}
+    .swiper-pagination .swiper-pagination-bullet-active{width: 21px; height: 12px; background: #e75230; border-radius: 6px;}
+  }
+
   
 
 }
