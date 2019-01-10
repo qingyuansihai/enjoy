@@ -15,9 +15,12 @@ class Categorylist extends Component{
 
 	componentWillMount() {
 		this.props.hide()
+		this.props.isHome()
 	}
 	componentWillUnmount() {
 		this.props.show()
+		this.props.isCate()
+
 	}
 
 	componentDidMount() {		
@@ -70,6 +73,18 @@ export default connect(
 			return {
 				type:"HideNavBar",
 				payload:false
+			}
+		},
+		isHome() {
+			return {
+				type:"ChangeHome",
+				payload:false
+			}
+		},
+		isCate() {
+			return {
+				type:"ChangeCate",
+				payload:true
 			}
 		}
 	}

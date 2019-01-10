@@ -2,12 +2,14 @@ import {createStore,combineReducers,compose} from "redux"
 
 //创建reducer, 记录所有状态,
 import navBarReducer from "./Reducers/navBarReducer"
+import TopBarReducer from "./Reducers/TopBarReducer"
 import thunk from "redux-thunk"
 import promiseThunk from "redux-promise"
 import {applyMiddleware} from "redux"
 
 const reducer = combineReducers({
-	navBarReducer
+	navBarReducer,
+	TopBarReducer
 });
 
 

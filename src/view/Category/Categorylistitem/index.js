@@ -21,10 +21,12 @@ class Categorylistitem extends Component{
 
 	componentWillUnmount() {
 		this.props.show()
+		this.props.isCate()
 	}
 
 	componentDidMount() {
 		this.props.hide()
+		this.props.isHome()
 
 		//获取的是分类页的数据
 		getDatalist(this.props.match.params.cateid).then(res=>{
@@ -118,6 +120,18 @@ export default connect(
 			return {
 				type:"HideNavBar",
 				payload:false
+			}
+		},
+		isHome() {
+			return {
+				type:"ChangeHome",
+				payload:false
+			}
+		},
+		isCate() {
+			return {
+				type:"ChangeCate",
+				payload:true
 			}
 		}
 	}
