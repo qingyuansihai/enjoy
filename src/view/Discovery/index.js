@@ -7,11 +7,7 @@ import 'swiper/dist/css/swiper.min.css'
 import Recomment from './components/Recomment'
 import Omnibus from './components/Omnibus'
 import Hotrecmmnet from './components/Hotrecmmnet'
-// import SkuShelf from './components/SkuShelf'
-// import Skufood from './components/Skufood'
-
 import Common from './components/Common'
-
 
 class Discovery extends Component{
 
