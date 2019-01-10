@@ -1,13 +1,13 @@
 import React,{Component} from 'react'
-import './index.scss'
 import {getDiscovery} from './model'
-// import {NavLink} from 'react-router-dom'
 import Swiper from 'swiper/dist/js/swiper.js'
-import 'swiper/dist/css/swiper.min.css'
 import Recomment from './components/Recomment'
 import Omnibus from './components/Omnibus'
 import Hotrecmmnet from './components/Hotrecmmnet'
 import Common from './components/Common'
+
+import './index.scss'
+import 'swiper/dist/css/swiper.min.css'
 
 class Discovery extends Component{
 
@@ -26,7 +26,9 @@ class Discovery extends Component{
 			skuprotitle:[],
 			skuprolist:[],
 			commont:[],
-			proId:null
+			proId:[],
+			proidt:[]
+
 		}
 	}
 
@@ -40,6 +42,23 @@ class Discovery extends Component{
 				var newword = proid[i].enjoy_url.substr(indexId,7)
 				newarray.push(newword)
 			}
+			var proidt = res[4].data.tabs
+			var newarrayt = []
+			for(var i=0;i<proidt.length;i++){
+				var indexId = proidt[i].enjoy_url.indexOf("1")
+				var newword = proidt[i].enjoy_url.substr(indexId,7)
+				newarrayt.push(newword)
+			}
+
+			var proidf = res[5].data.tabs
+			var newarrayf = []
+			for(var i=0;i<proidf.length;i++){
+				var indexId = proidf[i].enjoy_url.indexOf("1")
+				var newword = proidf[i].enjoy_url.substr(indexId,7)
+				newarrayf.push(newword)
+			}
+
+
 
 			//console.log(newarray)
 			this.setState({
@@ -54,7 +73,9 @@ class Discovery extends Component{
 				skuprotitle:res[5].data.group_section,
 				skuprolist:res[5].data.tabs,
 				commont:res[3].data,
-				proId:newarray
+				proId:newarray,
+				proidt:newarrayt,
+				proidf:newarrayf
 			})
 			new Swiper ('.swiper-container', {
 	            direction: 'horizontal',
@@ -107,12 +128,12 @@ class Discovery extends Component{
 
 				{
 					this.state.commont.length!== 0?
-					<Common title = {this.state.skufoodtitle} list={this.state.skufoodlist} proid = {this.state.proId}/>:null
+					<Common title = {this.state.skufoodtitle} list={this.state.skufoodlist} proid = {this.state.proidt}/>:null
 				}
 
 				{
 					this.state.commont.length!== 0?
-					<Common title = {this.state.skuprotitle} list={this.state.skuprolist} proid = {this.state.proId}/>:null
+					<Common title = {this.state.skuprotitle} list={this.state.skuprolist} proid = {this.state.proidf}/>:null
 				}
 				
 			</div>
