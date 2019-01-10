@@ -9,8 +9,11 @@ import Discovery from '../view/Discovery'
 import Product from '../view/Product'
 import Feedback from '../view/Feedback'
 
+import {Provider} from "react-redux" //让每个容器组件拿到状态
+import store from "../store"
 
 const router = (
+	<Provider store={store}>
 	<Router>
 		<App>
 			<Switch>
@@ -31,6 +34,7 @@ const router = (
 			</Switch>
 		</App>
 	</Router>
+	</Provider>
 );
 
 export default router
