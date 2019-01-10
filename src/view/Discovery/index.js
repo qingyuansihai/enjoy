@@ -44,18 +44,18 @@ class Discovery extends Component{
 			}
 			var proidt = res[4].data.tabs
 			var newarrayt = []
-			for(var i=0;i<proidt.length;i++){
-				var indexId = proidt[i].enjoy_url.indexOf("1")
-				var newword = proidt[i].enjoy_url.substr(indexId,7)
-				newarrayt.push(newword)
+			for(var k=0;k<proidt.length;k++){
+				var indexIdt = proidt[k].enjoy_url.indexOf("1")
+				var newwordt = proidt[k].enjoy_url.substr(indexIdt,7)
+				newarrayt.push(newwordt)
 			}
 
 			var proidf = res[5].data.tabs
 			var newarrayf = []
-			for(var i=0;i<proidf.length;i++){
-				var indexId = proidf[i].enjoy_url.indexOf("1")
-				var newword = proidf[i].enjoy_url.substr(indexId,7)
-				newarrayf.push(newword)
+			for(var h=0;h<proidf.length;h++){
+				var indexIdf = proidf[h].enjoy_url.indexOf("1")
+				var newwordf = proidf[h].enjoy_url.substr(indexIdf,7)
+				newarrayf.push(newwordf)
 			}
 
 
