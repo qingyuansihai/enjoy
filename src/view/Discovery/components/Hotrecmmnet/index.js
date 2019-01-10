@@ -3,6 +3,9 @@ import propTypes from 'prop-types'
 
 
 class Hotrecmment extends Component {
+	static propTypes = {
+		hot:propTypes.array
+	}
 
 	render(){
 		return (

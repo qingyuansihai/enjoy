@@ -6,6 +6,5 @@ function getDiscovery(){
 	})
 }
 
-
 export {getDiscovery}
 

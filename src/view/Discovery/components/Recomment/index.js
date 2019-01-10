@@ -22,6 +22,7 @@ class Recomment extends Component{
 				    	)
 				    }
 				  </div>
+				  
 				</div>
 			</div>
 		)
