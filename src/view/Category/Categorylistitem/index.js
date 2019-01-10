@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import './index.scss';
+import {connect} from 'react-redux';
+import store from '../../../store';
 // import getSort from './module'
 
 class Categorylistitem extends Component{
@@ -12,8 +14,16 @@ class Categorylistitem extends Component{
 	  	sortdata: [],
 	  	isShow: false,
 	  	current: 0,
-	  	sortcon: "智能排序"
+	  	sortcon: "智能排序",
+	  	changetri: "tridown"
 	  };
+	}
+
+	componentWillMount() {
+		this.props.hide()
+	}
+	componentWillUnmount() {
+		this.props.show()
 	}
 
 	componentDidMount() {
@@ -48,13 +58,13 @@ class Categorylistitem extends Component{
 		return <div>
 			<ul className="navlist">
 				<li className="navleft">全部</li>
-				<li className="navright" onClick={ this.handleClickNav.bind(this) }><span className="navword">{ this.state.sortcon }</span><span className="tridown"></span>
+				<li className="navright" onClick={ this.handleClickNav.bind(this) }><span className="navword">{ this.state.sortcon }</span><span className={ this.state.changetri }></span>
 					{
 						this.state.isShow?
 						<ul className="seclist">
 							{
 								this.state.sortdata.map((item,index) =>
-									<li key={ item.sort_id } onClick={ this.handleSecClick.bind(this,index,item.sort_name) } className={this.state.current===index?'active secitem':'secitem'}>{ item.sort_name }</li>
+									<li key={ item.sort_id } onClick={ this.handleSecClick.bind(this,index,item.sort_name,item.sort_id) } className={this.state.current===index?'active secitem':'secitem'}>{ item.sort_name }</li>
 								)
 							}
 						</ul>
@@ -80,21 +90,48 @@ class Categorylistitem extends Component{
 			</ul>
 		</div>
 	}
-
+// https:'//api.ricebook.com/4/tab/category_product_list.json?category_id=7&sort=1&from_id=0&city_id=104&page=0
+// https:'//api.ricebook.com/4/tab/category_product_list.json?category_id=7&sort=3&from_id=0&city_id=104&page=0
+// https:'//api.ricebook.com/4/tab/category_product_list.json?category_id=7&sort=2&from_id=0&city_id=104&page=0
+// https:'//api.ricebook.com/4/tab/category_product_list.json?category_id=7&sort=4&from_id=0&city_id=104&page=0
+	
 	handleClickNav() {
 		this.setState({
-			isShow: !this.state.isShow
+			isShow: !this.state.isShow,
+			changetri: !this.state.isShow ? "triup" : "tridown"
 		})
 	}
 
-	handleSecClick(index,name) {
-		this.setState({
-			current: index,
-			sortcon: name
+	handleSecClick(index,name,id) {
+		axios({
+			url:`https://api.ricebook.com/4/tab/category_product_list.json?category_id=${this.props.match.params.cateid}&sort=${id}&from_id=0&city_id=104&page=0`
+		}).then(res=>{
+			this.setState({
+				current: index,
+				sortcon: name,
+				datalist: res.data
+			})
 		})
+
 	}
 }
 
 
-export default Categorylistitem
+export default connect(
+	null,
+	{
+		show() {
+			return {
+				type:"ShowNavBar",
+				payload:true
+			}
+		},
+		hide() {
+			return {
+				type:"HideNavBar",
+				payload:false
+			}
+		}
+	}
+)(Categorylistitem)
  

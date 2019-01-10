@@ -1,12 +1,17 @@
 import React,{Component} from 'react'
 import {NavLink} from "react-router-dom";
-import './index.scss'
+import './index.scss';
+import {connect} from "react-redux";
+import store from "../../store";
 
 class NavBar extends Component{
 
 	render() {
 		return (
-			<div id="navBar">
+			<div>
+				{
+					this.props.NavisShow?
+					<div id="navBar">
 					<ul>
 						<li>
 							<NavLink to="/home" activeClassName="active" replace>
@@ -28,10 +33,19 @@ class NavBar extends Component{
 								<i className="iconfont icon-wode"/>
 							</NavLink>
 						</li>
-					</ul>
+					</ul>				
+					</div>
+					:null
+				}
 			</div>
 		);
 	}
 }
 
-export default NavBar
+export default connect(
+	(state) => {
+		return {
+			NavisShow: state.navBarReducer
+		}
+	}
+)(NavBar)

@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import getCategoryList from './module';
 import './index.scss';
+import {connect} from 'react-redux';
+import store from '../../../store';
 
 class Categorylist extends Component{
 	constructor(props) {
@@ -11,7 +13,14 @@ class Categorylist extends Component{
 	  };
 	}
 
-	componentDidMount() {
+	componentWillMount() {
+		this.props.hide()
+	}
+	componentWillUnmount() {
+		this.props.show()
+	}
+
+	componentDidMount() {		
 		getCategoryList().then(res => {
 			console.log(res)
 			this.setState({
@@ -48,6 +57,22 @@ class Categorylist extends Component{
 	}
 }
 
-export default Categorylist;
+export default connect(
+	null,
+	{
+		show() {
+			return {
+				type:"ShowNavBar",
+				payload:true
+			}
+		},
+		hide() {
+			return {
+				type:"HideNavBar",
+				payload:false
+			}
+		}
+	}
+)(Categorylist);
 
 

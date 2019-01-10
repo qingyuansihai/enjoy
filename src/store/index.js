@@ -7,7 +7,7 @@ import promiseThunk from "redux-promise"
 import {applyMiddleware} from "redux"
 
 const reducer = combineReducers({
-	navBarReducer,
+	navBarReducer
 });
 
 
