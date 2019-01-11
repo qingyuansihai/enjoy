@@ -1,0 +1,73 @@
+.centercon {
+	width: 100%;
+	height: 100%;
+	padding: 60px 40px 0;
+
+	h1 {
+		text-align: center;
+		font-size: 40px;
+		margin-bottom: 40px;
+	}
+
+	input {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+
+	.tel {
+		width: 100%;
+		height: 42px;
+		text-indent: 8px;
+		font-size: 16px;
+		margin-bottom: 20px;
+	}
+
+	.mes {
+		height: 42px;
+		width: 100%;
+		display: flex;
+		margin-bottom: 20px;
+
+		.ver {
+			width: 60%;
+			height: 42px;
+			text-indent: 8px;
+			font-size: 16px;
+			margin-bottom: 20px;
+			margin-right: 5%;
+		}
+
+		.verbtn {
+			width: 35%;
+			background: none;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+	}
+
+	.logbtn {
+		width: 100%;
+		padding: 8px 0;
+		background: #000;
+		border: 1px solid #ccc;
+		color: #fff;
+		margin-bottom: 80px;
+	}
+
+	.upcon {
+		font-size: 12px;
+		text-align: center;
+		color: #ccc;
+	}
+
+	.downcon {
+		font-size: 12px;
+		text-align: center;
+		color: #ccc;
+
+		a {
+			text-decoration: underline;
+			color: #000;
+		}
+	}
+}

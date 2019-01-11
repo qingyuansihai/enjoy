@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
+import ReactDom from 'react-dom';
 import axios from 'axios';
 import './index.scss';
 import {connect} from 'react-redux';
 import store from '../../../store';
-import {getSort,getDatalist} from './module'
+import {getSort,getDatalist} from './module';
 
 class Categorylistitem extends Component{
 	constructor(props) {
@@ -18,6 +19,7 @@ class Categorylistitem extends Component{
 	  	changetri: "tridown"
 	  };
 	}
+
 
 	componentWillUnmount() {
 		this.props.show()

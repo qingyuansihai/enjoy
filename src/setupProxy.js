@@ -17,6 +17,11 @@ module.exports = function(app) {
 		changeOrigin: true
 	}));
 
+	app.use(proxy('/redkeep', {
+		target: 'https://api.ricebook.com',
+		changeOrigin: true
+	}));
+
 
 
 };

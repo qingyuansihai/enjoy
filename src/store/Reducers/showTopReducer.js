@@ -1,18 +1,16 @@
-const TopBarReducer = (prevstate=true,action)=>{
+const showTopReducer = (prevstate=true,action)=>{
 
 	// console.log(prevstate,action);
 	let {type,payload}= action;
 	switch(type){
-		case "ChangeHome":
+		case "HideTopBar":
 			return payload;
-		case "ChangeCate":
+		case "ShowTopBar":
 			return payload;
 
 		default:
 			return prevstate
 	}
-
 };
 
-export default TopBarReducer;
-
+export default showTopReducer;

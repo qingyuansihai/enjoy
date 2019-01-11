@@ -1,0 +1,69 @@
+#all-feedback {
+	h4 {
+		text-align: center;
+		line-height: 100px;
+	}
+	padding: 0 20px 50px;
+	.feed-tabs {
+		border-bottom: 1px solid #ccc;
+		overflow: hidden;
+		padding: 20px 0;
+		span {
+			float: left;
+			margin-right: 16px;
+			padding: 0 15px;
+			height: 26px;
+			line-height: 26px;
+			border-radius: 4px;
+			border: 1px solid #e0e0e0;
+			font-size: 12px;
+			text-align: center;
+			color: #92969c;
+		}
+		.checked {
+			color: #ff3939;
+			background-color: #ffebeb;
+			border-color: #ff3939;
+		}
+	}
+	.feed-list {
+		li{
+			border-bottom: 1px solid #ccc;
+			padding: 20px 0;
+			.user {
+				img {
+					width: 40px;
+					height: 40px;
+					border-radius: 50%;
+					float: left;
+				}
+				span {
+					line-height: 40px;
+					margin-left: 20px;
+				}
+			}
+			.score {
+				color: #92969c;
+				font-size: 12px;
+				margin-top: 16px;
+				span {
+					margin-right: 10px;
+				}
+			}
+			.user-text {
+				margin-top: 16px;
+				line-height: 24px;
+			}
+			.image {
+
+				img {
+					display: inline-block;
+					width: 105px;
+					height: 105px;
+					margin: 2px;
+				}
+			}
+		}
+
+	}
+}
