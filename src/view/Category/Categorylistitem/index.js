@@ -5,7 +5,6 @@ import './index.scss';
 import {connect} from 'react-redux';
 import store from '../../../store';
 import {getSort,getDatalist} from './module';
-import { Spin } from 'antd';
 
 class Categorylistitem extends Component{
 	constructor(props) {

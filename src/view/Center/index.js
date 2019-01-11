@@ -1,9 +1,8 @@
 import React,{Component} from 'react';
-import ReactDom from 'react-dom';
 import {connect} from 'react-redux';
 import store from '../../store';
 import getCenter from './module';
-import { Switch,Icon } from 'antd';
+import './index.scss';
 
 class Center extends Component {
 	constructor(props) {
@@ -16,31 +15,43 @@ class Center extends Component {
 
 	componentWillMount() {
 		this.props.hide()
+		this.props.navhide()
 	}
 
 	componentWillUnmount() {
 		this.props.show()
+		this.props.navshow()
 	}
 
-	componentDidMount() {
-		getCenter().then(res=>{
-			console.log(res)
-			this.setState({
-				centerData: res
-			})
-		})
-	}
+	// componentDidMount() {
+	// 	getCenter().then(res=>{
+	// 		console.log(res)
+	// 		this.setState({
+	// 			centerData: res
+	// 		})
+	// 	})
+	// }
 
 	render() {
 		return (
-			<div>
-				 <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />
-				    <br />
-				    <Switch checkedChildren="1" unCheckedChildren="0" />
-				    <br />
-				<Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked />
+			<div className="centercon">
+				<h1 onClick={ this.clickToHome.bind(this) }>E N J O Y</h1>
+				<input type="text" name="telephone" placeholder="手机号" className="tel"/>
+				<div className="mes">
+					<input type="text" name="verification" placeholder="短信验证码" className="ver"/>
+					<button className="verbtn">获取验证码</button>
+				</div>
+				<button className="logbtn">登录</button>
+				<p className="upcon">未注册的用户登录后自动创建账户</p>
+				<p className="downcon">登录即表示您同意
+					<a href="https://topic.ricebook.com/topicpage/agreement.html">用户协议</a>
+				</p>
 			</div>
 		)
+	}
+
+	clickToHome() {
+		this.props.history.push('/home')
 	}
 }
 
@@ -56,6 +67,18 @@ export default connect(
 		hide() {
 			return {
 				type:"HideTopBar",
+				payload:false
+			}
+		},
+		navshow() {
+			return {
+				type:"ShowNavBar",
+				payload:true
+			}
+		},
+		navhide() {
+			return {
+				type:"HideNavBar",
 				payload:false
 			}
 		}
