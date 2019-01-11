@@ -118,7 +118,11 @@ class Discovery extends Component{
 						{this.state.swiperlist.length}</div>
 				</div>
 				<Recomment swiper = {this.state.swiperlist} />
-				<Omnibus favertor = {this.state.omnibus}/>
+				{
+					this.state.omnibus.length !== 0 ?
+					<Omnibus favertor = {this.state.omnibus}/>:null
+				}
+				
 				<Hotrecmmnet hot = {this.state.hotlist} />
 
 				{

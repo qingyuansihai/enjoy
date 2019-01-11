@@ -6,6 +6,7 @@ import Category from '../view/Category'
 import Categorylist from '../view/Category/Categorylist'
 import Categorylistitem from '../view/Category/Categorylistitem'
 import Discovery from '../view/Discovery'
+import DiscoveryList from '../view/Discovery/Childrens/DiscoveryList'
 import Product from '../view/Product'
 import Feedback from '../view/Feedback'
 
@@ -27,7 +28,15 @@ const router = (
 						</Switch>
 					</Category>
 				}/>
-				<Route path='/discovery' component={Discovery}/>
+
+				<Route path='/discovery' render={()=>
+					<Discovery>
+						<Route path='/discovery/list' component={DiscoveryList} exact ></Route>
+					</Discovery>
+				}/>
+				
+
+				<Route path='/list' component= {DiscoveryList}></Route>
 				<Route path='/product/:id' component={Product} exact/>
 				<Route path='/feedback/:id' component={Feedback} exact/>
 				<Redirect  from='*' to='/home'/>
