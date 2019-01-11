@@ -34,7 +34,7 @@ class Categorylistitem extends Component{
 	}
 
 	componentDidMount() {
-		Toast.loading('Loading', 0, ()=>{}, true)	
+		Toast.loading('Loading...', 0, ()=>{}, true)
 		this.props.hide()
 		this.props.isHome()
 
@@ -44,7 +44,7 @@ class Categorylistitem extends Component{
 				datalist: res
 			})
 			Toast.hide()
-			Toast.success('loadingsuc',1)
+			Toast.success('Load Succeed',1)
 		})
 		//获取的是排序的数据
 		getSort(this.props.match.params.cateid).then(res=>{
