@@ -45,7 +45,7 @@ class TopBar extends Component{
 						:null
 					}
 					<div className='right'>
-						<span className="iconfont">&#xe601;</span>
+						<NavLink to="/center"><span className="iconfont">&#xe601;</span></NavLink>
 						<span className="iconfont">&#xe617;</span>
 					</div>
 				</header>
@@ -67,6 +67,10 @@ class TopBar extends Component{
 			isShow: false
 		})
 	}
+
+	// clickToCenter() {
+	// 	this.props.history.push('/center')
+	// }
 }
 export default connect(
 	(state) => {
