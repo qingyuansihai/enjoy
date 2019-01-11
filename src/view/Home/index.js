@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import indexpicList from './module';
 import './index.scss';
-import {PullToRefresh} from 'antd-mobile';
+import {PullToRefresh, Toast} from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import ReactDOM from 'react-dom';
 
@@ -19,6 +19,8 @@ class Home extends Component {
 	}
 
 	componentDidMount() {
+		Toast.loading('Loading...',1, ()=>{}, true);
+
 		const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
 		setTimeout(() => this.setState({
 			height: hei,

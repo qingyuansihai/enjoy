@@ -8,6 +8,7 @@ import Common from './components/Common'
 
 import './index.scss'
 import 'swiper/dist/css/swiper.min.css'
+import {Toast} from "antd-mobile";
 
 class Discovery extends Component{
 
@@ -104,6 +105,9 @@ class Discovery extends Component{
 		})
 
 
+	}
+	componentDidMount() {
+		Toast.loading('Loading...',1, ()=>{}, true);
 	}
 
 	render(){

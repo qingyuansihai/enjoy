@@ -13,6 +13,7 @@ import Like from './Like'
 import CartBar from './CartBar'
 
 import {connect} from 'react-redux'
+import {Toast} from "antd-mobile";
 
 class Product extends Component {
 
@@ -65,9 +66,12 @@ class Product extends Component {
 
 	componentWillUnmount() {
 		this.props.showNavBar()
+
 	}
 
 	componentDidMount() {
+		Toast.loading('Loading...',1.5, ()=>{}, true);
+
 		this.props.hideNavBar();
 
 		getProductBasicInfo(this.props.match.params.id).then(res => {
@@ -80,7 +84,8 @@ class Product extends Component {
 
 			this.setState({
 				detailInfo: res
-			})
+			});
+			Toast.success('Load Succeed', 1.5)
 		})
 	}
 
