@@ -28,6 +28,7 @@ class Product extends Component {
 		return (
 			<div id="product">
 				{
+
 					this.state.basicInfo && this.state.detailInfo.length > 4 ?
 						<div className="container">
 							{

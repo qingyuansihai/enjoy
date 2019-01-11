@@ -26,7 +26,7 @@ class Feedback extends Component{
 						<ul className="feed-list">
 							{
 								this.state.new.map(item =>
-									<li key={item.id}>
+									<li key={item.id} className="feed-list-item">
 										<div className="user">
 											<img src={item.avatar} alt=""/>
 											<span>{item.nick_name}</span>
@@ -89,6 +89,8 @@ class Feedback extends Component{
 		});
 
 		this.props.hideNavBar()
+
+		// console.log(top)
 	}
 
 	componentWillUnmount() {
