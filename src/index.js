@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
 import router from './router';
-import 'antd/dist/antd.css';
+import 'antd-mobile/dist/antd-mobile.css';
 
 ReactDOM.render(router, document.getElementById('root'));
 

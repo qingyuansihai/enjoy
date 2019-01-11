@@ -8,9 +8,9 @@ function getSort (id) {
 	})
 }
 
-function getDatalist (id) {
+function getDatalist (id,num) {
 	return 	axios ({
-		url:`https://api.ricebook.com/4/tab/category_product_list.json?category_id=${id}&sort=1&from_id=0&city_id=104&page=0`
+		url:`https://api.ricebook.com/4/tab/category_product_list.json?category_id=${id}&sort=1&from_id=0&city_id=104&page=${num}`
 	}).then(res=>{
 		return res.data
 	});
