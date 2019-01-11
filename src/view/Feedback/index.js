@@ -21,35 +21,41 @@ class Feedback extends Component{
 					<span className={this.state.isChecked===1 ? 'checked' : ''} onClick={this.handleImage.bind(this)}>有图</span>
 				</div>
 
-				<ul className="feed-list">
-					{
-						this.state.new.map(item =>
-							<li key={item.id}>
-								<div className="user">
-									<img src={item.avatar} alt=""/>
-									<span>{item.nick_name}</span>
-								</div>
-								<div className="score">
-									{
+				{
+					this.state.new.length !== 0 ?
+						<ul className="feed-list">
+							{
+								this.state.new.map(item =>
+									<li key={item.id}>
+										<div className="user">
+											<img src={item.avatar} alt=""/>
+											<span>{item.nick_name}</span>
+										</div>
+										<div className="score">
+											{
 
-										item.scores.map(item =>
-											<span key={item.id}>{item.name} {item.score.toFixed(1)}</span>
-										)
-									}
-								</div>
-								<p className="user-text">{item.text}</p>
-								<div className="image">
-									{
-										item.images.map((item, index) =>
-											<img src={item} alt="" key={index}/>
-										)
-									}
-								</div>
-							</li>
-						)
-					}
+												item.scores.map(item =>
+													<span key={item.id}>{item.name} {item.score.toFixed(1)}</span>
+												)
+											}
+										</div>
+										<p className="user-text">{item.text}</p>
+										<div className="image">
+											{
+												item.images.map((item, index) =>
+													<img src={item} alt="" key={index}/>
+												)
+											}
+										</div>
+									</li>
+								)
+							}
 
-				</ul>
+						</ul>
+						:
+						<h4>暂时没有评论，快来添加吧！</h4>
+				}
+
 			</div>
 		);
 	}
