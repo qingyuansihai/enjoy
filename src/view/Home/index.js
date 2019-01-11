@@ -14,7 +14,7 @@ class Home extends Component {
 			refreshing: false,
 			down: true,
 			height: document.documentElement.clientHeight,
-			detalist: [],
+			detalist: []
 		};
 	}
 
@@ -28,6 +28,7 @@ class Home extends Component {
 
 	componentWillMount() {
 		indexpicList().then(res => {
+
 			console.log(res)
 			this.setState({
 				detalist: res
@@ -49,7 +50,7 @@ class Home extends Component {
 										{
 											item.tabs.map(tooch => {
 												return (
-													<li key={tooch.id} onClick={this.handleClick.bind(this)}>
+													<li key={tooch.id} onClick={this.handleClick.bind(this,tooch.enjoy_url)}>
 														<img src={tooch.url} alt="{tooch.tag}"/>
 														<div className="toochtitle">{tooch.title}</div>
 														<div className="toochdesc">{tooch.desc}</div>
@@ -115,8 +116,24 @@ class Home extends Component {
 
 
 
-			handleClick() {
+			handleClick(proId) {
+				console.log(proId)
 
+				var Indexof = proId.indexOf("1")
+
+				var typeId = proId.substr(Indexof,7)
+
+                // var proUrl = res[0].tabs;
+                // var newArray = []
+                // for(var i=0;i<proUrl.length;i++){
+                // 	var Indexof = proUrl[i].enjoy_url.indexOf("1")
+                // 	
+                // 	newArray.push(typeId)
+                // }
+
+                // console.log(newArray)
+
+				this.props.history.push(`/product/${typeId}`);
 			}
 
 }
