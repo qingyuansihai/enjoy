@@ -2,7 +2,9 @@ import React,{Component} from 'react';
 import getCategoryList from './module';
 import './index.scss';
 import {connect} from 'react-redux';
+import { Toast } from 'antd-mobile'; 
 // import store from '../../../store';
+
 
 class Categorylist extends Component{
 	constructor(props) {
@@ -23,7 +25,8 @@ class Categorylist extends Component{
 
 	}
 
-	componentDidMount() {		
+	componentDidMount() {	
+		Toast.loading('Loading', 0.4, ()=>{}, true)	
 		getCategoryList().then(res => {
 			console.log(res)
 			this.setState({

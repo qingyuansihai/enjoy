@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 // import store from '../../../store';
 import {getSort,getDatalist} from './module';
 //下拉
-import { PullToRefresh} from 'antd-mobile'
+import { PullToRefresh, Toast} from 'antd-mobile'
 
 class Categorylistitem extends Component{
 	constructor(props) {
@@ -28,13 +28,13 @@ class Categorylistitem extends Component{
 	  };
 	}
 
-
 	componentWillUnmount() {
 		this.props.show()
 		this.props.isCate()
 	}
 
 	componentDidMount() {
+		Toast.loading('Loading', 0, ()=>{}, true)	
 		this.props.hide()
 		this.props.isHome()
 
@@ -43,6 +43,8 @@ class Categorylistitem extends Component{
 			this.setState({
 				datalist: res
 			})
+			Toast.hide()
+			Toast.success('loadingsuc',1)
 		})
 		//获取的是排序的数据
 		getSort(this.props.match.params.cateid).then(res=>{
@@ -90,7 +92,6 @@ class Categorylistitem extends Component{
 			          // 	})
 			          // })
 
-
 			          setTimeout(() => {
 			            this.setState({ refreshing: false});
 			          }, 1000);
@@ -121,7 +122,11 @@ class Categorylistitem extends Component{
 			      					<p className="listup">{ item.name }</p>
 			      					<p className="listdown">
 			      						<span className="priceleft">{ item.price/100+"/2位" }</span>
-			      						<span className="priceright">{ "￥"+item.original_price/100 }</span>
+			      						<span className="priceright">{ 
+			      							item.original_price?
+			      							"￥"+item.original_price/100
+			      							:"" 
+			      						}</span>
 			      					</p>
 			      				</div>
 			      			</li>

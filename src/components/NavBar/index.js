@@ -24,7 +24,7 @@ class NavBar extends Component{
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/invite" activeClassName="active" replace>
+							<NavLink to="/center" activeClassName="active" replace>
 								<i className="iconfont icon-liwu"/>
 							</NavLink>
 						</li>
