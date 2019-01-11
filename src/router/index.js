@@ -8,6 +8,7 @@ import Categorylistitem from '../view/Category/Categorylistitem'
 import Discovery from '../view/Discovery'
 import Product from '../view/Product'
 import Feedback from '../view/Feedback'
+import Center from '../view/Center'
 
 import {Provider} from "react-redux" //让每个容器组件拿到状态
 import store from "../store"
@@ -30,6 +31,7 @@ const router = (
 				<Route path='/discovery' component={Discovery}/>
 				<Route path='/product/:id' component={Product} exact/>
 				<Route path='/feedback/:id' component={Feedback} exact/>
+				<Route path='/center' component={Center} exact/>
 				<Redirect  from='*' to='/home'/>
 			</Switch>
 		</App>
