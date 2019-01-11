@@ -19,7 +19,7 @@ class Home extends Component {
 	}
 
 	componentDidMount() {
-		Toast.loading('Loading...',1, ()=>{}, true);
+		Toast.loading('Loading...',0.8, ()=>{}, true);
 
 		const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
 		setTimeout(() => this.setState({
