@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 import './index.scss'
 import logo from './logo.png';
 import {connect} from 'react-redux';
-import store from '../../store';
+// import store from '../../store';
 
 class TopBar extends Component{
 	constructor(props) {

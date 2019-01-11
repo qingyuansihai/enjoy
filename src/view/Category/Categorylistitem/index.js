@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import './index.scss';
 import {connect} from 'react-redux';
-import store from '../../../store';
+// import store from '../../../store';
 import {getSort,getDatalist} from './module';
 //下拉
-import { PullToRefresh, Button } from 'antd-mobile'
+import { PullToRefresh} from 'antd-mobile'
 
 class Categorylistitem extends Component{
 	constructor(props) {
@@ -116,7 +116,7 @@ class Categorylistitem extends Component{
 			      	{
 			      		this.state.datalist.map(item =>
 			      			<li className="downdata" key={ item.product_id } onClick={ this.handleDatalist.bind(this,item.product_id) }>
-			      				<img src={item.product_image}/>
+			      				<img src={item.product_image} alt=""/>
 			      				<div className="itemdown">
 			      					<p className="listup">{ item.name }</p>
 			      					<p className="listdown">

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import store from '../../store';
-import getCenter from './module';
+// import store from '../../store';
+// import getCenter from './module';
 import './index.scss';
 
 class Center extends Component {

@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import getCategoryList from './module';
 import './index.scss';
 import {connect} from 'react-redux';
-import store from '../../../store';
+// import store from '../../../store';
 
 class Categorylist extends Component{
 	constructor(props) {

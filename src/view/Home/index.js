@@ -74,7 +74,7 @@ class Home extends Component {
 						overflow: 'auto',
 					}}
 					indicator={this.state.down ? {} : {deactivate: '下拉可以刷新'}}
-					direction={this.state.down == 'down'}
+					direction={this.state.down === 'down'}
 					refreshing={this.state.refreshing}
 					onRefresh={() => {
 						this.setState({refreshing: true});

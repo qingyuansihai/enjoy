@@ -58,7 +58,7 @@ class Product extends Component {
 						: null
 				}
 
-				<CartBar/>
+				<CartBar {...this.props}/>
 			</div>
 		);
 	}
